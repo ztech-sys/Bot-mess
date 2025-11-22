@@ -1,0 +1,26 @@
+name: Bot Spam Messenger
+
+on:
+  workflow_dispatch:  # bấm chạy tay
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install deps
+        run: npm install axios
+
+      - name: Run bot
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          THREAD_ID: ${{ secrets.THREAD_ID }}
+          MSG: ${{ secrets.MSG }}
+        run: node bot.js
