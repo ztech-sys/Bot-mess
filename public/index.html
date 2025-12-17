@@ -1,28 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crash Plane</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
-<h2 id="m">x1.00</h2>
-<button onclick="start()">START</button>
 
-<script>
-const ws = new WebSocket("wss://" + location.host);
+<div class="game">
+  <div class="multiplier" id="multiplier">x1.00</div>
 
-ws.onmessage = e => {
-  const d = JSON.parse(e.data);
-  if (d.type === "UPDATE") {
-    document.getElementById("m").innerText =
-      "x" + d.m.toFixed(2);
-  }
-  if (d.type === "CRASH") {
-    alert("💥 Nổ tại x" + d.at.toFixed(2));
-  }
-};
+  <div class="sky">
+    <div class="plane" id="plane">✈️</div>
+  </div>
 
-function start() {
-  ws.send(JSON.stringify({
-    type: "START"
-  }));
-}
-</script>
+  <button id="cashout">RÚT</button>
+</div>
+
+<script src="game.js"></script>
 </body>
-</html
+</html>
