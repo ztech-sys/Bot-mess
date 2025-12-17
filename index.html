@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2 id="m">x1.00</h2>
+<button onclick="start()">START</button>
+
+<script>
+const ws = new WebSocket("wss://" + location.host);
+
+ws.onmessage = e => {
+  const d = JSON.parse(e.data);
+  if (d.type === "UPDATE") {
+    document.getElementById("m").innerText =
+      "x" + d.m.toFixed(2);
+  }
+  if (d.type === "CRASH") {
+    alert("💥 Nổ tại x" + d.at.toFixed(2));
+  }
+};
+
+function start() {
+  ws.send(JSON.stringify({
+    type: "START"
+  }));
+}
+</script>
+</body>
+</html
