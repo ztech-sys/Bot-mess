@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crash Plane</title>
+  <meta charset="UTF-8">
+  <title>Avia Master</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="game">
-  <div class="multiplier" id="multiplier">x1.00</div>
-
-  <div class="sky">
-    <div class="plane" id="plane">✈️</div>
+  <div id="game">
+    <canvas id="canvas"></canvas>
+    <div id="sea"></div>
+    <button id="flyBtn">✈️ BAY LÊN</button>
   </div>
 
-  <button id="cashout">RÚT</button>
-</div>
+  <!-- Telegram Mini App -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.expand();
+  </script>
 
-<script src="game.js"></script>
+  <script src="game.js"></script>
 </body>
 </html>
