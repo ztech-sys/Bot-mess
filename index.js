@@ -1,18 +1,21 @@
-const TelegramBot = require('node-telegram-bot-api');
+const { Telegraf } = require("telegraf");
 
-const bot = new TelegramBot('8523020605:AAGw26U-GLQell81TD3xfOGvqqYz-MX1fFU', { polling: true });
+const bot = new Telegraf(process.env.BOT_TOKEN);
 
-bot.onText(/\/start/, (msg) => {
-  bot.sendMessage(msg.chat.id, 'Bấm để chơi 👇', {
+bot.start(ctx => {
+  ctx.reply("✈️ Avia Master", {
     reply_markup: {
       inline_keyboard: [[
         {
-          text: '🎮 CHƠI GAME',
+          text: "▶️ CHƠI NGAY",
           web_app: {
-            url: 'https://mini-app-gqf1.onrender.com'
+            url: "https://mini-app-gqf1.onrender.com"
           }
         }
       ]]
     }
   });
-})
+});
+
+bot.launch();
+console.log("Telegram Mini-App bot running")
