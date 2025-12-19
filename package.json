@@ -1,7 +1,11 @@
-const express = require("express");
-const app = express();
-
-app.use(express.static("public"));
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log("WEB RUN", PORT));
+{
+  "name": "avia-master",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js & node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "telegraf": "^4.16.3"
+  }
+}
