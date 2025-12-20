@@ -23,7 +23,7 @@ bot.start(ctx => {
 bot.launch({ webhook: false });
 console.log("Telegram Mini-App bot running");
 
-// Tạo server HTTP để Render coi là web service
+// Tạo server HTTP dummy để Render coi là web service
 const app = express();
 const port = process.env.PORT || 3000;
 
